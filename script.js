@@ -10,18 +10,37 @@ let arrayOfTodos = [
     "id": 2,
     "title": "delectus aut autem",
     "completed": false
-  }]
+  }
+]
 
-  const fetchTodos = () => {
+const fetchTodos = () => {
     fetch('https://jsonplaceholder.typicode.com/todos')
     .then( (response) => response.json())
     .then( (json) => arrayOfTodos = json)
-  }
+}
 
-  const logTodos = () => {
+const logTodos = () => {
     console.log(arrayOfTodos)
-  }
+}
 
-  const populateTodos = () => {
+const populateTodos = () => {
+    let unicorn = document.getElementById("todo-list")
+    let poop = document.createElement('LI')
+    let fork =document.createTextNode(arrayOfTodos[0].title)
 
-  }
+    poop.appendChild(fork) 
+    unicorn.appendChild(poop)
+}
+
+
+// console.log(arrayOfTodos[0].title) // => 14
+// console.log(arrayOfTodos[1].userId) // => 20
+
+// let list = () => {
+//     let unicorn = document.getElementById("todo-list")
+//     let poop = document.createElement('LI')
+//     let fork =poop.createTextNode(arrayOfTodos[0].title)
+
+//     poop.appendChild(fork) 
+//     unicorn.appendChild(poop)
+// }
