@@ -29,31 +29,32 @@ const populateTodos = () => {
 
     for (i=0; i < arrayOfTodos.length; i++){
     let newLi = document.createElement('LI')
-    let newH1 = document.createElement('H1')
-    let newH2 = document.createElement('H2')
-    let newH3 = document.createElement('H3')
-    let newH4 = document.createElement('H4')
+    let newP1 = document.createElement('P')
+    let newP2 = document.createElement('P')
+    let newP3 = document.createElement('P')
+    let newP4 = document.createElement('P')
 
     let userId =document.createTextNode(arrayOfTodos[i].userId)
-    newH1.appendChild(userId)
+    newP1.appendChild(userId)
 
     let id =document.createTextNode(arrayOfTodos[i].id)
-    newH2.appendChild(id)
+    newP2.appendChild(id)
 
     let title =document.createTextNode(arrayOfTodos[i].title)
-    newH3.appendChild(title)
+    newP3.appendChild(title)
 
     let completed=document.createTextNode(arrayOfTodos[i].completed)
-    newH4.appendChild(completed)
-    newLi.appendChild(newH1)
-    newLi.appendChild(newH2)
-    newLi.appendChild(newH3)
-    newLi.appendChild(newH4)
+    newP4.appendChild(completed)
+
+    newLi.appendChild(newP1)
+    newLi.appendChild(newP2)
+    newLi.appendChild(newP3)
+    newLi.appendChild(newP4)
     list.appendChild(newLi)
 
     if (arrayOfTodos[i].completed === true) {
-        fontColor = 'blue'} else {fontColor = 'red'}
+        fontColor = 'darkturquoise'} else {fontColor = 'palevioletred'}
 
-        newH4.style.color=fontColor
+        newP4.style.color=fontColor
     }
 }

@@ -1,3 +1,30 @@
-ol{
-    text-align: center;
+.buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+h1{
+    text-align: center;
+    color: whitesmoke;
+    background-color: darkturquoise;
+    margin: 0 250pt;
+}
+
+button{
+    text-align: center;
+    height: 40px;
+    width: 118px;
+    margin: 14pt;
+    border-color: darkturquoise;
+    border-style:groove;
+    border-width: 4pt;
+    background-color:palevioletred;
+    color: whitesmoke;
+}
+
+ol{
+    
+    margin-left: 240pt;
+}
+
