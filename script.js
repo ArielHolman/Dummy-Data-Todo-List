@@ -12,6 +12,14 @@ let arrayOfTodos = [
     "completed": false
   }
 ]
+
+let x = ""
+
+const userNum = (num) => {
+    x = parseInt(num)  
+}
+  
+
 let fontColor =''
 
 const fetchTodos = () => {
@@ -23,38 +31,76 @@ const fetchTodos = () => {
 const logTodos = () => {
     console.log(arrayOfTodos)
 }
+const populateAllTodos = () => {
+    populateTodos(arrayOfTodos)
+}
 
-const populateTodos = () => {
+const populateTodos = (arr) => {
     let list = document.getElementById("todo-list")
 
-    for (i=0; i < arrayOfTodos.length; i++){
-    let newLi = document.createElement('LI')
-    let newP1 = document.createElement('P')
-    let newP2 = document.createElement('P')
-    let newP3 = document.createElement('P')
-    let newP4 = document.createElement('P')
+    for (i=0; i < arr.length; i++){
+        let newLi = document.createElement('LI')
+        let newP1 = document.createElement('P')
+        let newP2 = document.createElement('P')
+        let newP3 = document.createElement('P')
+        let newP4 = document.createElement('P')
 
-    let userId =document.createTextNode(arrayOfTodos[i].userId)
-    newP1.appendChild(userId)
+        let userId =document.createTextNode(arr[i].userId)
+        newP1.appendChild(userId)
 
-    let id =document.createTextNode(arrayOfTodos[i].id)
-    newP2.appendChild(id)
+        let id =document.createTextNode(arr[i].id)
+        newP2.appendChild(id)
 
-    let title =document.createTextNode(arrayOfTodos[i].title)
-    newP3.appendChild(title)
+        let title =document.createTextNode(arr[i].title)
+        newP3.appendChild(title)
 
-    let completed=document.createTextNode(arrayOfTodos[i].completed)
-    newP4.appendChild(completed)
+        let completed=document.createTextNode(arr[i].completed)
+        newP4.appendChild(completed)
 
-    newLi.appendChild(newP1)
-    newLi.appendChild(newP2)
-    newLi.appendChild(newP3)
-    newLi.appendChild(newP4)
-    list.appendChild(newLi)
+        newLi.appendChild(newP1)
+        newLi.appendChild(newP2)
+        newLi.appendChild(newP3)
+        newLi.appendChild(newP4)
+        list.appendChild(newLi)
 
-    if (arrayOfTodos[i].completed === true) {
-        fontColor = 'darkturquoise'} else {fontColor = 'palevioletred'}
 
-        newP4.style.color=fontColor
+        if (arr[i].completed === true) {
+            fontColor = 'darkturquoise'} else {fontColor = 'palevioletred'}
+
+            newP4.style.color=fontColor
     }
 }
+
+const filterTodosByUserId = () => {
+
+    let arrayOfUserTodos = arrayOfTodos.filter(function(numId) {
+        return numId.userId === x
+    }) 
+
+    populateTodos(arrayOfUserTodos)
+}
+
+const filterTodosByCompleted = () => {
+    
+    let arrayOfUserCompletedTodos = arrayOfTodos.filter(function(todo) {
+        return todo.completed === true
+    }) 
+
+    populateTodos(arrayOfUserCompletedTodos)
+}
+
+const filterTodosByNotCompleted = () => {
+    
+    let arrayOfUserNotCompletedTodos = arrayOfTodos.filter(function(todo) {
+        return todo.completed === false
+    }) 
+
+    populateTodos(arrayOfUserNotCompletedTodos)
+}
+
+const clearTheList = () => {
+    const arrayOfTodos=document.getElementsByTagName("OL")
+    for (i=0; i < arrayOfTodos.length; i++)
+    arrayOfTodos[i].innerHTML=null
+}
+

@@ -12,12 +12,17 @@
     <div class="buttons">
         <button onclick="fetchTodos()">Fetch Todos</button>
         <button onclick="logTodos()">Log Todos</button>
-        <button onclick="populateTodos()">Populate Todos</button>
+        <button onclick="populateAllTodos()">Populate Todos</button>
+        <label for="idEntry">Enter User ID</label>
+        <input id= "entryId" type="text" value="" onkeyup="userNum(this.value)">
+        <button type="button" onclick="filterTodosByUserId()">Submit</button>
+        <button type="button" onclick="filterTodosByCompleted()">Completed</button>
+        <button type="button" onclick="filterTodosByNotCompleted()">Incomplete</button>
+        <button type="button" onclick="clearTheList()">Clear the List</button>
     </div> 
     <ol id="todo-list">
             <!-- LIs will go here -->
     </ol>
-
     <script src="script.js"></script>
 </body>
 </html>
